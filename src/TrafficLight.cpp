@@ -1,5 +1,6 @@
 #include <iostream>
 #include <random>
+#include <random>
 #include "TrafficLight.h"
 
 /* Implementation of class "MessageQueue" */
@@ -53,7 +54,7 @@ void TrafficLight::waitForGreen()
     // Once it receives TrafficLightPhase::green, the method returns.
 
     while(true){
-        std::this_thread::sleep_for(std::chrono::milliseconds(1));
+        // std::this_thread::sleep_for(std::chrono::milliseconds(1));
         TrafficLightPhase light = _queue.receive();
         if (light == TrafficLightPhase::green)  return;
     }
@@ -80,8 +81,11 @@ void TrafficLight::cycleThroughPhases()
     // Also, the while-loop should use std::this_thread::sleep_for to wait 1ms between two cycles. 
     
     // generate random value 4-6
-    srand(time(NULL));
-    int delay = rand() % 6000 + 4000;
+    std::random_device rd;
+    std::default_random_engine re(rd());
+    std::uniform_int_distribution<> ds(4000, 6000);
+    int delay = ds(re);
+    //std::cout << std::to_string(delay) << std::endl;
     
     auto startTime = std::chrono::high_resolution_clock::now();
 
@@ -102,7 +106,7 @@ void TrafficLight::cycleThroughPhases()
             auto ftr = std::async(std::launch::async, &MessageQueue<TrafficLightPhase>::send, &_queue, std::move(_currentPhase));
             ftr.wait();
 
-            delay = rand() % 6000 + 4000;
+            //delay = ds(re);
             startTime = std::chrono::high_resolution_clock::now();
 
         }

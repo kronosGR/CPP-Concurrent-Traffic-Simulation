@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/kronos/DISKS/CLOUD/CLOUD/DEV/CPP/learning/UDACITY/Concurrent-Traffic-Simulation/src/TrafficLight.cpp
+iostream
+-
+random
+-
+random
+-
+TrafficLight.h
+/home/kronos/DISKS/CLOUD/CLOUD/DEV/CPP/learning/UDACITY/Concurrent-Traffic-Simulation/src/TrafficLight.h
+
+/home/kronos/DISKS/CLOUD/CLOUD/DEV/CPP/learning/UDACITY/Concurrent-Traffic-Simulation/src/TrafficLight.h
+mutex
+-
+deque
+-
+condition_variable
+-
+time.h
+-
+future
+-
+string
+-
+TrafficObject.h
+/home/kronos/DISKS/CLOUD/CLOUD/DEV/CPP/learning/UDACITY/Concurrent-Traffic-Simulation/src/TrafficObject.h
+
+/home/kronos/DISKS/CLOUD/CLOUD/DEV/CPP/learning/UDACITY/Concurrent-Traffic-Simulation/src/TrafficObject.h
+vector
+-
+thread
+-
+mutex
+-
+

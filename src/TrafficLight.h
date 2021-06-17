@@ -6,6 +6,7 @@
 #include <condition_variable>
 #include <time.h>
 #include <future>
+#include <string>
 #include "TrafficObject.h"
 
 // forward declarations to avoid include cycle
