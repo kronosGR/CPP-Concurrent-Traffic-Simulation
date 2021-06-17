@@ -88,12 +88,13 @@ void TrafficLight::cycleThroughPhases()
     //std::cout << std::to_string(delay) << std::endl;
     
     auto startTime = std::chrono::high_resolution_clock::now();
+    int dif = 0;
 
     while(true){
         std::this_thread::sleep_for(std::chrono::milliseconds(1));
 
         auto endTime = std::chrono::high_resolution_clock::now();
-        int dif = (std::chrono::duration_cast<std::chrono::milliseconds>(endTime - startTime)).count();
+        dif = (std::chrono::duration_cast<std::chrono::milliseconds>(endTime - startTime)).count();
 
         if (dif >= delay){
             if (_currentPhase == TrafficLightPhase::green){
